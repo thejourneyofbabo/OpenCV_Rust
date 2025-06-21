@@ -1,4 +1,5 @@
 // OpenCV Rust
+// export OPENCV_VIDEOIO_PRIORITY_LIST=V4L2,GSTREAMER
 
 use opencv::{
     core::{self, AlgorithmHint},
@@ -9,9 +10,9 @@ use opencv::{
 
 fn main() -> Result<()> {
     // Basic camera stream
-    //basic_camera()
+    basic_camera()
     //grayscale_example()
-    edge_detection_example()
+    //edge_detection_example()
     //blur_example()
     //color_filter_example()
 }
@@ -19,7 +20,8 @@ fn main() -> Result<()> {
 // Basic camera (working version)
 fn basic_camera() -> Result<()> {
     let mut cam = videoio::VideoCapture::new(0, videoio::CAP_ANY)?;
-
+    //let mut cam = videoio::VideoCapture::new(0, videoio::CAP_V4L2) // Ubuntu setup
+    //    .or_else(|_| videoio::VideoCapture::new(0, videoio::CAP_ANY))?;
     if !cam.is_opened()? {
         panic!("Cannot open camera!");
     }

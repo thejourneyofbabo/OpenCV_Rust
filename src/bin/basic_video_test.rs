@@ -4,6 +4,8 @@ use opencv::{highgui, videoio, Result};
 fn main() -> Result<()> {
     let window = "video capture";
     highgui::named_window(window, highgui::WINDOW_AUTOSIZE)?;
+    //let mut cam = videoio::VideoCapture::new(0, videoio::CAP_V4L2) // ubuntu setup
+    //    .or_else(|_| videoio::VideoCapture::new(0, videoio::CAP_ANY))?;
     let mut cam = videoio::VideoCapture::new(0, videoio::CAP_ANY)?; // 0 is the default camera
     let opened = videoio::VideoCapture::is_opened(&cam)?;
     if !opened {
