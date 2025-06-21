@@ -1,12 +1,7 @@
 // OpenCV Rust
 // export OPENCV_VIDEOIO_PRIORITY_LIST=V4L2,GSTREAMER
 
-use opencv::{
-    core::{self, AlgorithmHint},
-    highgui, imgproc,
-    prelude::*,
-    videoio, Result,
-};
+use opencv::{core, highgui, imgproc, prelude::*, videoio, Result};
 
 fn main() -> Result<()> {
     // Basic camera stream
